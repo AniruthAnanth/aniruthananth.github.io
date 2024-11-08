@@ -7,7 +7,7 @@
     --card-color:  rgb(243, 249, 255);
     --border-thickness: 5px;
     --shadow: 15px 15px rgba(0, 0, 0, 0.5);
-    --link-color: rgb(255, 154, 223);
+    --link-color: rgb(101, 255, 152);
 }
 
 body {
@@ -187,4 +187,21 @@ a:hover {
     height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .intro-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .intro-image {
+        margin: -5px;
+    }
+
+    .intro-text h2 {
+        font-size: 1rem;
+    }
 }
