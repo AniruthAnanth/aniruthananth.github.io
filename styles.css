@@ -107,6 +107,8 @@ a:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
     transition: transform 0.6s;
     padding: 20px;
     box-sizing: border-box;
@@ -124,14 +126,20 @@ a:hover {
 
 .bento-back {
     background-color: var(--primary);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
 .bento-item.flipped .bento-front {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
 .bento-item.flipped .bento-back {
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
     transform: rotateY(360deg);
 }
 
@@ -174,11 +182,15 @@ a:hover {
     height: 100%;
     backface-visibility: hidden;
     border-radius: var(--border-radius);
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
     transition: transform 0.6s;
     border: var(--border-thickness) solid var(--text);
 }
 
 .image-front {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
 }
 
@@ -224,11 +236,15 @@ a:hover {
     border: calc(var(--border-thickness) * 0.85) solid var(--text);
     font-weight: bold;
     z-index: 1;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
     transition: all 0.6s;
     transition-delay: 0.05s;
 }
 
 .disappear {
     opacity: 0%;
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
 }
