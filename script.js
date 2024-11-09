@@ -9,6 +9,18 @@ function markTried() {
 }
 
 document.querySelectorAll('.bento-item').forEach(item => {
+    let t = false;
+    
+    for (let child of item.children) {
+        if (child.classList.contains('bento-back')) {
+        t = true;
+        }
+    }
+
+    if (!t) {
+        return;
+    }
+
     item.addEventListener('touchstart', () => {
         item.classList.toggle('flipped');
     

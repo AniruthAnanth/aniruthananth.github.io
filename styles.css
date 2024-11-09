@@ -8,6 +8,7 @@
     --border-thickness: 5px;
     --shadow: 15px 15px rgba(0, 0, 0, 0.5);
     --link-color: 101, 255, 152;
+    --click-me: rgb(234, 255, 0);
 }
 
 hr {
@@ -229,7 +230,7 @@ a:hover {
     position: absolute;
     top: -10px;
     left: -10px;
-    background-color: var(--primary);
+    background-color: var(--click-me);
     color: #000;
     padding: 2px 7.5px;
     border-radius: var(--border-radius);
