@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="flat-section">
+    <div class="flat-section"  style="padding-bottom: 25px; background-color: rgb(var(--link-color)); border-bottom: solid var(--text) var(--border-thickness)">
         <div class="intro-section">
             <div class="intro-text">
-                <h1 style="margin-bottom: -1rem">Hi! My name is Aniruth!</h1>
+                <h1 style="line-height: 1em; margin-bottom: -10px; padding-bottom: 0px;">Hey! My name is Aniruth!</h1>
                 <h2>
-                    I'm an 11th grader at the <a href="">Texas Academy of Math and Science</a>.
+                    I'm an 11th grader at the <a href="https://tams.unt.edu/" class="alta">Texas Academy of Math and Science</a>.
                     My current research interests center around the intersection of computational physics and bioinformatics.
                     My hobbies include playing volleyball, occasional doomscrolling, and making music.
                 </h2>
@@ -22,22 +22,20 @@
                     <div class="image-front">
                         <img src="./resources/thinking.jpg">
                     </div>
-                    <div class="image-back">
-                        <img src="./resources/chips.jpg">
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="flat-section" style="margin-top: -20px;">
+    <div class="flat-section" style="">
         <h1>Some of my projects include...</h1>
         <div class="bento-box">
             <div class="bento-item">
+                <div class="click-me">Try Me!</div>
                 <div class="bento-front">
                     <h2>...simulating reflectance and transmittance of gaseous mixtures containing organic compounds...</h2>
                 </div>
                 <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem"><a href="https://github.com/AniruthAnanth/SpectroscopyAnalysis/tree/main/simulated_data">
+                    <h3 style="margin-bottom: -0.5rem;  width: 100%;"><a href="https://github.com/AniruthAnanth/SpectroscopyAnalysis/tree/main/simulated_data">
                         SpectroscopyAnalysis/<wbr>simulated_data
                     </a></h3>
                     <p>
@@ -50,12 +48,40 @@
                     <h2>...developing a lightweight transfer matrix method library with my roommate...</h2>
                 </div>
                 <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem"><a href="https://github.com/AniruthAnanth/LightweightTransferMatrixMethod">
+                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/AniruthAnanth/LightweightTransferMatrixMethod">
                         Lightweight Transfer Matrix Method
                     </a></h3>
                     <p>
                         A small Python library for calculating reflectance and transmittance data for 1 dimensional 
                         multilayer media. Many thanks to <b><a href="https://github.com/NarenGG">@NarenGG</a></b>!
+                    </p>
+                </div>
+            </div>
+            <div class="bento-item">
+                <div class="bento-front">
+                    <h2>...implementing a basic 3D FDTD simulation in C...</h2>
+                </div>
+                <div class="bento-back">
+                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/AniruthAnanth/3DimensionalFDTD">3D FDTD in C
+                    </a></h3>
+                    <p>
+                        An implementation of the ubiquitous finite difference time domain (FDTD) algorithm. 
+                        Also a custom C linear algebra and fast Fourier transform. <b>Still a work in progress!</b>
+                    </p>
+                </div>
+            </div>
+            <div class="bento-item">
+                <div class="bento-front">
+                    <h2>...hacking together a fluid dynamics simulation the night before our science olympiad...</h2>
+                    <p><i>11/9/2024</i></p>
+                </div>
+                <div class="bento-back">
+                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/AniruthAnanth/NavierStokesSimulation">Navier-Stokes
+                    </a></h3>
+                    <p>
+                        A 3D fluid simulation based off of solving the Navier-Stokes equations 
+                        and iterating with the finite difference method. 
+                        Feat.<b><a href="https://github.com/NarenGG">@NarenGG</a></b>.
                     </p>
                 </div>
             </div>
@@ -76,7 +102,7 @@
             <div class="bento-item">
                 <div class="bento-front">
                     <h2>...designing a bytecode virtual machine programming language...</h2>
-                    <p><i>November 2021</i></p>
+                    <p>🪦 <i>November 2021</i></p>
                 </div>
                 <div class="bento-back">
                     <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/Viper2211/Monolith/">
@@ -94,7 +120,7 @@
                     <p><i>October 2021</i></p>
                 </div>
                 <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem"><a href="https://github.com/AniruthAnanth/Workshop">
+                    <h3 style="margin-bottom: -0.5rem;  width: 100%;"><a href="https://github.com/AniruthAnanth/Workshop">
                             Workshop: An Esoteric Programming Language
                     </a></h3>
                     <p>
@@ -105,7 +131,7 @@
             <div class="bento-item">
                 <div class="bento-front">
                     <h2>...integrating Discord rich presence with a desktop version of Chess.com...</h2>
-                    <p><i>April 2021</i></p>
+                    <p>🪦 <i>April 2021</i></p>
                 </div>
                 <div class="bento-back">
                     <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/Viper2211/Chess-Desktop">
@@ -119,5 +145,6 @@
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     --card-color:  rgb(243, 249, 255);
     --border-thickness: 5px;
     --shadow: 15px 15px rgba(0, 0, 0, 0.5);
-    --link-color: rgb(101, 255, 152);
+    --link-color: 101, 255, 152;
 }
 
 hr {
@@ -24,18 +24,18 @@ body {
     background-color: var(--primary);
     color: var(--text);
     font-weight: 600;
+    font-size: clamp(0.7rem, 1.2vw, 1rem); /* Adjust font size based on viewport width */
 }
 
 .flat-section {
     padding: 15px;
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 0;
 }
 
 .raised-section {
     border-radius: var(--border-radius);
-    padding: 15px;
+    padding: 7.5px;
     padding-left: 30px;
     padding-right: 30px;
     margin: 30px;
@@ -44,13 +44,21 @@ body {
     background: var(--primary);
     border: var(--border-thickness) solid var(--text);
     box-shadow: var(--shadow);
-    margin-bottom: 0;
 }
 
 a {
     color: var(--text);
     text-decoration-skip-ink: none;
-    text-decoration:underline solid var(--link-color);
+    text-decoration:underline solid rgb(var(--link-color));
+    transition: all 0.2s ease;
+    text-decoration-thickness: var(--border-thickness);
+    background-color: transparent;
+}
+
+.alta {
+    color: var(--text);
+    text-decoration-skip-ink: none;
+    text-decoration:underline solid var(--primary);
     transition: all 0.2s ease;
     text-decoration-thickness: var(--border-thickness);
     background-color: transparent;
@@ -58,16 +66,19 @@ a {
 
 a:hover {
     text-decoration:underline solid transparent;
-    background-color: var(--link-color);
+    background-color: rgb(var(--link-color));
+}
+
+.alta:hover {
+    text-decoration:underline solid transparent;
+    background-color: var(--primary);
 }
 
 .bento-box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    padding: 0px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 20px;
 }
 
 @media (min-width: 1200px) {
@@ -99,22 +110,16 @@ a:hover {
     transition: transform 0.6s;
     padding: 20px;
     box-sizing: border-box;
-}
-
-.bento-front * {
-    width: 100%;
-}
-
-.bento-front p {
-    text-align: right;
-    padding: 0px;
-    margin: 0px;
-    margin-top: -0.5rem;
-    margin-bottom: -0.5rem;
+    transition-delay: 0.1s;
 }
 
 .bento-front {
-    background-color: var(--link-color);
+    background-color: rgb(var(--link-color));
+    text-align: center;
+}
+
+.bento-front p {
+    margin-top: 0px;
 }
 
 .bento-back {
@@ -122,11 +127,11 @@ a:hover {
     transform: rotateY(180deg);
 }
 
-.bento-item:hover .bento-front {
+.bento-item.flipped .bento-front {
     transform: rotateY(180deg);
 }
 
-.bento-item:hover .bento-back {
+.bento-item.flipped .bento-back {
     transform: rotateY(360deg);
 }
 
@@ -161,7 +166,7 @@ a:hover {
     position: relative;
 }
 
-.image-front, .image-back {
+.image-front {
     position: absolute;
     top: 0;
     left: 0;
@@ -177,38 +182,53 @@ a:hover {
     transform: rotateY(0deg);
 }
 
-.image-back {
-    transform: rotateY(180deg);
-}
-
-.intro-image:hover .image-front {
-    transform: rotateY(180deg);
-}
-
-.intro-image:hover .image-back {
-    transform: rotateY(360deg);
-}
-
-.image-front img, .image-back img {
+.image-front img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--border-radius);
+    border-radius: calc(var(--border-radius) * 0.5);
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
     .intro-section {
+        width: 80vw;
+        padding: 0px;
+        margin: 0px;
         flex-direction: column;
         align-items: center;
+        gap: 0px;
         justify-content: center;
-    }
-
-    .intro-image {
-        margin: -5px;
     }
 
     .intro-text h2 {
         font-size: 1rem;
     }
+
+    .intro-image {
+        margin: 0;
+        padding: 0;
+        height: 80vw;
+        display: none;
+    }
+}
+
+.click-me {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: var(--primary);
+    color: #000;
+    padding: 2px 7.5px;
+    border-radius: var(--border-radius);
+    border: calc(var(--border-thickness) * 0.85) solid var(--text);
+    font-weight: bold;
+    z-index: 1;
+    transition: all 0.6s;
+    transition-delay: 0.05s;
+}
+
+.disappear {
+    opacity: 0%;
+    transform: rotateY(90deg);
 }
