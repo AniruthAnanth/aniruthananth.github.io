@@ -59,6 +59,11 @@ class Grid {
 
         // Append each item to the container
         this.items.forEach(item => {
+            if (item.widthUnits > this.itemsPerRow) {
+                item.heightUnits = Math.ceil((item.widthUnits * item.heightUnits) / this.itemsPerRow);
+                item.widthUnits = this.itemsPerRow;
+            }
+
             this.$container.append(item.createElement(unitSize, gutter));
         });
 
