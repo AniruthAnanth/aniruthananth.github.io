@@ -64,11 +64,15 @@ p {
     border-radius: var(--border-radius);
     box-shadow: rgba(var(--border-color), 0.7) 0px 0px 5px;
     overflow-y: auto; /* Show scroll bar only when needed */
-    transition: box-shadow 0.2s, width 0.2s, height 0.2s;
+    transition: box-shadow 0.2s, width 0.2s, height 0.2s, background-color 0.5s;
     font-size: 0.95em; /* slightly smaller */
     min-width: 100px; /* minimum width */
     min-height: 100px; /* minimum height */
     user-select: none; /* Prevent text selection in grid items */
+}
+
+.grid-item:hover {
+    background-color: white;
 }
 
 /* Set styles for grid items when hovered, dragged, or positioned post-drag */
@@ -128,4 +132,8 @@ p {
 .grid-item::-webkit-scrollbar-track-piece:start {
     background: transparent;
     margin-top: 15px;
+}
+
+.stamp {
+    position: absolute;
 }
