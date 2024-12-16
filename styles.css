@@ -1,251 +1,131 @@
-/* styles.css */
-
+/* Define CSS variables for colors, border thickness, and border radius */
 :root {
-    --border-radius: 8px;
-    --text: rgb(30, 30, 30);
-    --primary: rgb(243, 249, 255);
-    --card-color:  rgb(243, 249, 255);
-    --border-thickness: 5px;
-    --shadow: 15px 15px rgba(0, 0, 0, 0.5);
-    --link-color: 125, 228, 197;
-    --click-me: rgb(255, 112, 112);
+    --background-color: 250, 250, 250;
+    --border-color: 210, 210, 210;
+    --font-color: 160, 160, 160;
+    --border-thickness: 1px;
+    --border-radius: 10px;
 }
 
-hr {
-    color: var(--text);
-    height: calc(var(--border-thickness)* 0.5);
-    background-color: var(--text);
-    border-radius: calc(var(--border-radius) * 0.75);
-}
-
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding: 0;
-    margin: 0;
-    background-color: var(--primary);
-    color: var(--text);
-    font-weight: 600;
-    font-size: clamp(0.7rem, 1.2vw, 1rem); /* Adjust font size based on viewport width */
-}
-
-.flat-section {
-    padding: 15px;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.raised-section {
-    border-radius: var(--border-radius);
-    padding: 7.5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin: 30px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background: var(--primary);
-    border: var(--border-thickness) solid var(--text);
-    box-shadow: var(--shadow);
-}
-
-a {
-    color: var(--text);
-    text-decoration-skip-ink: none;
-    text-decoration:underline solid rgb(var(--link-color));
-    transition: all 0.2s ease;
-    text-decoration-thickness: var(--border-thickness);
-    background-color: transparent;
-}
-
-.alta {
-    color: var(--text);
-    text-decoration-skip-ink: none;
-    text-decoration:underline solid var(--primary);
-    transition: all 0.2s ease;
-    text-decoration-thickness: var(--border-thickness);
-    background-color: transparent;
-}
-
-a:hover {
-    text-decoration:underline solid transparent;
-    background-color: rgb(var(--link-color));
-}
-
-.alta:hover {
-    text-decoration:underline solid transparent;
-    background-color: var(--primary);
-}
-
-.bento-box {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-@media (min-width: 1200px) {
-    .bento-box {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-.bento-item {
-    perspective: 1000px;
-    position: relative;
-    width: 100%;
-    padding-top: 100%; /* Maintain aspect ratio */
-}
-
-.bento-front, .bento-back {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Set base styles for the HTML element */
+html {
+    background-color: rgb(var(--background-color));
+    font-family: monospace;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
-    border: var(--border-thickness) solid var(--text);
+    font-size: calc(0.95rem + 0.475vmin); /* slightly smaller base font size with responsiveness */
+}
+
+/* Remove default margin and padding from the body */
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Set styles for all heading elements */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin: 0px;
+    line-height: 1.15em;
+    font-size: 0.95em; /* slightly smaller */
+}
+
+/* Set styles for paragraph elements */
+p {
+    color: var(--font-color);
+    margin: 5px 0px;
+    font-size: 0.95em; /* slightly smaller */
+}
+
+/* Set margin for the grid container */
+.grid-container {
+    margin: 40px;
+}
+
+/* Set width for the grid */
+.grid {
+    width: 100%;
+}
+
+/* Clear floats after the grid */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* Set styles for grid items */
+.grid-item {
+    line-height: 1.1em;
+    padding: 20px;
+    background: rgb(var(--background-color));
+    box-sizing: border-box;
+    border: rgb(var(--border-color)) solid var(--border-thickness);
     border-radius: var(--border-radius);
+    box-shadow: rgba(var(--border-color), 0.7) 0px 0px 5px;
+    overflow-y: auto; /* Show scroll bar only when needed */
+    transition: box-shadow 0.2s, width 0.2s, height 0.2s;
+    font-size: 0.95em; /* slightly smaller */
+    min-width: 100px; /* minimum width */
+    min-height: 100px; /* minimum height */
+    user-select: none; /* Prevent text selection in grid items */
+}
+
+/* Set styles for grid items when hovered, dragged, or positioned post-drag */
+.grid-item:hover,
+.grid-item.is-dragging,
+.grid-item.is-positioning-post-drag {
+    box-shadow: rgba(var(--border-color), 1) 0px 0px 17px;
+    z-index: 2; /* keep dragged item on top */
+}
+
+/* Set styles for the drop placeholder */
+.packery-drop-placeholder {
+  outline: 2px dashed rgba(var(--border-color), 0.7);
+  outline-offset: -5px;
+  border-radius: var(--border-radius);
+  -webkit-transition: -webkit-transform 0.2s;
+          transition: transform 0.2s;
+}
+
+/* Center content using flexbox */
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    -webkit-transition: -webkit-transform 0.6s;
-    -moz-transition: -moz-transform 0.6s;
-    transition: transform 0.6s;
-    padding: 20px;
-    box-sizing: border-box;
-    transition-delay: 0.1s;
-}
-
-.bento-front {
-    background-color: rgb(var(--link-color));
-    text-align: center;
-}
-
-.bento-front p {
-    margin-top: 0px;
-}
-
-.bento-back {
-    background-color: var(--primary);
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-}
-
-.bento-item.flipped .bento-front {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-}
-
-.bento-item.flipped .bento-back {
-    -webkit-transform: rotateY(360deg);
-    -moz-transform: rotateY(360deg);
-    transform: rotateY(360deg);
-}
-
-.bento-item img {
-    max-width: 100%;
-    height: auto;
-}
-
-.intro-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: 90vw;
-}
-
-.intro-text {
-    flex: 1;
-}
-
-.intro-image {
-    perspective: 1000px;
-    height: 200px;
-    width: auto;
-    margin: 10px;
-    aspect-ratio: 1/1;
-}
-
-.image-card {
-    height: 100%;
-    aspect-ratio: 1/1;
-    border-radius: var(--border-radius);
-    position: relative;
-}
-
-.image-front {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
+}
+
+/* Custom scrollbar styles */
+.grid-item::-webkit-scrollbar {
+    width: 14px;
+}
+
+.grid-item::-webkit-scrollbar-track {
+    background-color: rgb(var(--background-color));
     border-radius: var(--border-radius);
-    -webkit-transition: -webkit-transform 0.6s;
-    -moz-transition: -moz-transform 0.6s;
-    transition: transform 0.6s;
-    border: var(--border-thickness) solid var(--text);
 }
 
-.image-front {
-    -webkit-transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-}
-
-.image-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: calc(var(--border-radius) * 0.5);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .intro-section {
-        width: 80vw;
-        padding: 0px;
-        margin: 0px;
-        flex-direction: column;
-        align-items: center;
-        gap: 0px;
-        justify-content: center;
-    }
-
-    .intro-text h2 {
-        font-size: 1rem;
-    }
-
-    .intro-image {
-        margin: 0;
-        padding: 0;
-        height: 80vw;
-        display: none;
-    }
-}
-
-.click-me {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    background-color: var(--click-me);
-    color: #000;
-    padding: 2px 7.5px;
+.grid-item::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0); /* Move scrollbar 4px to the left */
+    background-clip: padding-box;
     border-radius: var(--border-radius);
-    border: calc(var(--border-thickness) * 0.85) solid var(--text);
-    font-weight: bold;
-    z-index: 1;
-    -webkit-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    transition: all 0.6s;
-    transition-delay: 0.05s;
+    background-color: rgb(var(--border-color));
+    transition: background-color 0.3s;
 }
 
-.disappear {
-    opacity: 0%;
-    -webkit-transform: rotateY(90deg);
-    -moz-transform: rotateY(90deg);
-    transform: rotateY(90deg);
+.grid-item::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(var(--font-color));
+}
+
+/* Make the scrollbar shorter */
+.grid-item::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 15px;
+}
+
+.grid-item::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 15px;
 }

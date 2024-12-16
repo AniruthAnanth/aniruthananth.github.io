@@ -4,156 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aniruth's Portfolio</title>
-    <link rel="icon" href="resources/download.png" type="image/x-icon">
+    <!-- Link to the stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Packery library for grid layout -->
+    <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+    <!-- Include Draggabilly library for drag-and-drop functionality -->
+    <script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
+    <!-- Include custom grid script -->
+    <script src="grid.js"></script>
+    <!-- Include bento items script -->
+    <script src="bentoItems.js"></script>
+    <!-- Include main script -->
+    <script src="script.js"></script>
+    <link rel="icon" href="assets/fire.png" type="image/png">
 </head>
 <body>
-    <div class="flat-section"  style="padding-bottom: 25px; background-color: rgb(var(--link-color)); border-bottom: solid var(--text) var(--border-thickness)">
-        <div class="intro-section">
-            <div class="intro-text">
-                <h1 style="line-height: 1em; margin-bottom: -10px; padding-bottom: 0px;">Hey! My name is Aniruth!</h1>
-                <h2>
-                    I'm an 11th grader at the <a href="https://tams.unt.edu/" class="alta">Texas Academy of Math and Science</a>.
-                    My current research interests center around the intersection of computational physics and bioinformatics.
-                    My hobbies include playing volleyball, occasional doomscrolling, and making music.
-                </h2>
-            </div>
-            <div class="intro-image">
-                <div class="image-card">
-                    <div class="image-front" style="background-color: white;">
-                        <img src="./resources/thinking.jpg">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Grid container -->
+    <div class="grid-container">
+        <!-- Grid element with ID 'grid' -->
+        <div class="grid" id="grid"></div>
     </div>
-    <div class="flat-section">
-        <h1>Some of my projects include...</h1>
-        <div class="bento-box">
-            <div class="bento-item">
-                <div class="click-me">Try Me!</div>
-                <div class="bento-front">
-                    <h2>...simulating reflectance and transmittance of gaseous mixtures containing organic compounds...</h2>
-                </div>
-                <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem;  width: 100%;"><a href="https://github.com/AniruthAnanth/SpectroscopyAnalysis/tree/main/simulated_data">
-                        SpectroscopyAnalysis/<wbr>simulated_data
-                    </a></h3>
-                    <p>
-                        A Python script to calculate the reflection and transmission properties of gaseous compounds containing common chemicals using the transfer matrix method.
-                    </p>
-                </div>
-            </div>
-            <div class="bento-item">
-                <div class="bento-front">
-                    <h2>...developing a lightweight transfer matrix method library with my roommate...</h2>
-                </div>
-                <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/AniruthAnanth/LightweightTransferMatrixMethod">
-                        Lightweight Transfer Matrix Method
-                    </a></h3>
-                    <p>
-                        A small Python library for calculating reflectance and transmittance data for 1 dimensional 
-                        multilayer media. Many thanks to <b><a href="https://github.com/NarenGG">@NarenGG</a></b>!
-                    </p>
-                </div>
-            </div>
-            <div class="bento-item">
-                <div class="bento-front">
-                    <h2>...implementing a basic 3D FDTD simulation in C...</h2>
-                </div>
-                <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/AniruthAnanth/3DimensionalFDTD">3D FDTD in C
-                    </a></h3>
-                    <p>
-                        An implementation of the ubiquitous finite difference time domain (FDTD) algorithm. 
-                        Also a custom C linear algebra and fast Fourier transform. <b>Still a work in progress!</b>
-                    </p>
-                </div>
-            </div>
-            <div class="bento-item">
-                <div class="bento-front">
-                    <h2>...hacking together a fluid dynamics simulation the night before our science olympiad...</h2>
-                    <p><i>11/9/2024</i></p>
-                </div>
-                <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/AniruthAnanth/NavierStokesSimulation">Navier-Stokes
-                    </a></h3>
-                    <p>
-                        A 3D <a href="https://aniruthananth.github.io/NavierStokesSimulation/">fluid simulation</a> based off of solving the Navier-Stokes equations 
-                        and iterating with the finite difference method. 
-                        Feat.<b><a href="https://github.com/NarenGG">@NarenGG</a></b>.
-                    </p>
-                </div>
-            </div>
-            <div class="bento-item">
-                <div class="bento-front">
-                    <h2>...improving a tournament management software for a nonprofit...</h2>
-                    <p><i>June 2023 - July 2024</i></p>
-                </div>
-                <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/burstWizard/slcaclean">SLCA Pairing Software
-                    </a></h3>
-                    <p>
-                        I collaborated with colleagues at the Student Led Chess Association (SLCA) to 
-                        develop a <a href="https://slca-system.vercel.app/">custom software</a> used to manage their chess tournaments.
-                    </p>
-                </div>
-            </div>
-            <div class="bento-item">
-                <div class="bento-front">
-                    <h2>...designing a bytecode virtual machine programming language...</h2>
-                    <p>🪦 <i>November 2021</i></p>
-                </div>
-                <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/Viper2211/Monolith/">
-                        Monolith: A Bytecode Virtual Machine Programming Language
-                    </a></h3>
-                    <p>
-                        An experimental toy programming language that compiles to a bytecode format
-                        and runs on a virtual machine. <b>No longer actively being developed. 😔</b>
-                    </p>
-                </div>
-            </div>
-            <div class="bento-item">
-                <div class="bento-front">
-                    <h2>...creating an interpreter for a new esoteric programming language... </h2>
-                    <p><i>October 2021</i></p>
-                </div>
-                <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem;  width: 100%;"><a href="https://github.com/AniruthAnanth/Workshop">
-                            Workshop: An Esoteric Programming Language
-                    </a></h3>
-                    <p>
-                        An esoteric programming language based off of the <i><a href="https://esolangs.org/wiki/Factory">Factory</a></i> programming language. 
-                    </p>
-                </div>
-            </div>
-            <div class="bento-item">
-                <div class="bento-front">
-                    <h2>...integrating Discord rich presence with a desktop version of Chess.com...</h2>
-                    <p>🪦 <i>April 2021</i></p>
-                </div>
-                <div class="bento-back">
-                    <h3 style="margin-bottom: -0.5rem; width: 100%;"><a href="https://github.com/Viper2211/Chess-Desktop">
-                        Chess Desktop + Rich Presence
-                    </a></h3>
-                    <p>
-                        A simple Electron desktop application for playing Chess, with Discord Rich Presence.
-                        <b>No longer actively being developed. 😔</b>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div style="padding: 25px 0px; padding-top: 0px;">
-    <div class="raised-section" >
-        <h1 style="width: 100%; text-align: left; font-size: clamp(1.3rem, 2vw, 1rem);">
-            📫 You can reach me by email at <a href="mailto:aniruth.airlines@gmail.com">aniruth.airlines@gmail.com</a>. <br>
-           💼 Or check out my profile on <a href="https://www.linkedin.com/in/aniruth-ananthanarayanan/">LinkedIn</a>!
-        </h1>
-    </div>
-    </div>
-    <script src="script.js"></script>
+    <footer>
+        <p style="color: transparent">thanks</p>
+    </footer>
 </body>
 </html>

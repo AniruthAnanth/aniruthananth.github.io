@@ -1,43 +1,38 @@
-function markTried() {
-    document.querySelectorAll('.bento-item').forEach(item => {
-        for (let child of item.children) {
-                if (child.classList.contains('click-me')) {
-                    child.classList.add('disappear');
-                }
-        }
-    })
-}
-
-document.querySelectorAll('.bento-item').forEach(item => {
-    let t = false;
-    
-    for (let child of item.children) {
-        if (child.classList.contains('bento-back')) {
-        t = true;
+$(document).ready(function() {
+    // Function to determine the number of items per row based on window width
+    function getItemsPerRow() {
+        const width = $(window).width();
+        if (width <= 600) {
+            return 1;
+        } else if (width <= 768) {
+            return 2;
+        } else if (width <= 992) {
+            return 3;
+        } else if (width <= 1100) {
+            return 4;
+        } else {
+            return 5;
         }
     }
 
-    if (!t) {
-        return;
-    }
+    // Initialize the grid with the calculated items per row and a gutter width of 5
+    let grid = new Grid('grid', getItemsPerRow(), 15);
 
-    item.addEventListener('touchstart', () => {
-        item.classList.toggle('flipped');
-    
-        markTried()
+    // Create grid items from bentoItems and append them to the grid
+    bentoItems.forEach(item => {
+        grid.appendItem(item);
     });
 
-    item.addEventListener('mouseover', () => {
-        item.classList.add('flipped');
+    // Render the grid
+    grid.render();
 
-
-        markTried()
-    });
-
-    item.addEventListener('mouseout', () => {
-        item.classList.remove('flipped');
-
-
-        markTried();
+    // Re-render the grid on window resize
+    $(window).resize(function() {
+        const items = grid.items; // get current items
+        grid = new Grid('grid', getItemsPerRow(), 15); // update items per row
+        items.forEach(item => {
+            grid.appendItem(item);
+        });
+        grid.render();
     });
 });
