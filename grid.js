@@ -76,6 +76,9 @@ class Grid {
 
         // Make all items draggable using Draggabilly
         this.packeryInstance.find('.grid-item').each(function(_, gridItem) {
+            if (!gridItem.draggable) {
+                return;
+            }
             const draggie = new Draggabilly(gridItem);
             this.packeryInstance.packery('bindDraggabillyEvents', draggie);
 
