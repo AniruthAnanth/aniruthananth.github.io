@@ -48,13 +48,13 @@ const bentoItemsDesktop = [
         1, 1, true, 'background-image: url("./assets/pibble.jpg"); background-size: cover; background-position: center;'),
 
     new GridItem(
-        `<div class="center linkish"  onclick="window.open('https://github.com/AniruthAnanth/SpectroscopyAnalysis')">
+        `<div class="center">
         <h1 style="width: 100%">SPARCS ☄️</h1>
         <p>
         SPARCS, or Spectral Processing and Analysis for Recognition of Chemical Species, is my latest research project.
 
         Working under Dr. Guru Khalsa's mentorship, I hope to develop a machine learning model that can identify chemical species in a gas mixture using spectroscopy data.
-        Check out the Github repository for this project by clicking this card, or read the progress reports <a href="./pages/sparcs.html">here</a>.
+        Check out the <a href="https://github.com/AniruthAnanth/SpectroscopyAnalysis">Github repository for this project</a>, or read the progress reports <a href="./pages/sparcs.html">here</a>.
         </p>
         </div>`, 
         2, 1, false, ''), 
