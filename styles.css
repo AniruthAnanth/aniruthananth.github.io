@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Set styles for paragraph elements */
 p {
     color: var(--font-color);
-    margin: 5px 0px;
+    margin: 0px 0px;
     font-size: 0.95em; /* slightly smaller */
 }
 

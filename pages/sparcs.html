@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SPARCS</title>
+    <link rel="stylesheet" type="text/css" href="../page.css">
+</head>
+<h1>SPARCS</h1>
+<form action="../index.html">
+    <input class="go-back" type="submit" value="← Go back" />
+</form>
+<h2>What is SPARCS?</h2>
+<p>
+    SPARCS, or Spectral Processing and Analysis for Recognition of Chemical Species, is a research project that I'm currently working.
+    The goal of the project is to develop a system that can identify (and possibly quantify) chemical compounds in a sample using Raman spectroscopy data.
+
+    <br><br>
+
+    Raman spectroscopy is a non-destructive analytical technique that uses the interaction between light and a sample
+    to create a "chemical fingerprint" of the sample from the vibrational energy levels. When light hits a sample,
+    most of the light is scattered at the same wavelength (Rayleigh scattering), but a small fraction of the light is scattered
+    at a different frequency due to an energy exchange with the vibrational modes of the sample. This is called the Raman effect.
+    The Raman spectrum is a plot of the intensity of the scattered light as a function of the frequency shift from the incident light, 
+    and it provides information about the bonds and functional groups in the sample.
+
+    <br><br>
+
+    The end goal of SPARCS is an easy-to-use, portable device that can be used by non-experts to identify chemical compounds in a sample.
+
+    The current goal of the project is to interpret spectral data with machine-learning techniques to identify and approximate chemical concentrations of unknown samples. 
+    Our current approach to do this uses a lightweight neural network trained on an effective representation of gaseous components constructed from simulated reference data,
+    and we hope to validate our results on experimental data soon.
+    We anticipate that real-time analysis of unknown chemical compounds using this technique will enable remote, 
+    non-invasive metabolic analysis, as well as passive hazardous leak detection and environmental monitoring.
+
+    <br><br>
+
+<h2>SPARCS Progress Update 12/24/2024</h2>
+Storing and loading from .json files finally became too tedious, so I decided to switch to a Jupyter notebook.
+I ended up running it through Windows Subsystem Linux, which caused some interesting, but unrelated, bugs.
+<br><br>
+I also noticed that my simulated Raman spectra were not being generated correctly, so I had to go back and fix the way that I was generating them.
+I ended up scrapping my initial code but retained the same underlying logic. 
+
+In order to avoid recalculating the same spectra again and again, I calculated the reference spectra at the start of the program rather than recalculating them every time I needed them.
+This made the program run much faster, but it also made the program take up a lot more memory. I'm not sure if this is a good trade-off, but I'll have to test it out more to see if it's worth it with a larger amount of chemicals and wavenumbers.
+<br><br>
+My plan was for the code to look something like this:
+<pre class="code">function generate_compound_spectrum(peak_positions, peak_intensities, wavenumbers, peak_width)
+    # Use the Gaussian function to generate the spectrum of a compound
+end
+
+# Precompute reference spectra for each compound
+reference_spectra = {}
+
+for compound, compound_data in compound_library
+    reference_spectrum = generate_compound_spectrum(
+        compound_data.peak_positions,
+        compound_data.peak_intensities,
+        wavenumbers,
+        peak_width
+    )
+
+    reference_spectra[compound] = reference_spectrum
+end
+
+function generate_mixture_spectrum(compounds, concentrations, reference_spectra, noise_level=0.03)
+    # Generate reasonable concentrations and combine the reference spectra to create a mixture spectrum
+end</pre>
+The coding part was pretty easy, but the generate_mixture_spectrum function had a lot of bugs that I had to fix. 
+I ended up having to rewrite the function a few times before I got it to work correctly.
+The primary issue was with the way I was calculating concentrations. Due the way I was randomly generating the concentration,
+there was a clear average value for the concentration of each compound. After 10-20 epochs the neural network figured this out and
+kept getting stuck at the average value. I had to change the way I was generating the concentrations to fix this issue.
+<br><br>
+I fixed this by randomly dropping some spectra from the mixture by setting their concentration to zero based on another random function.
+The randomness compounded on itself, and it ended up forcing the neural network to actually try to estimate the concentration instead of just guessing the average.
+<br><br>
+Here's what the results ended up looking like based on 30000 mixtures generated from 15 reference spectra:
+
+<pre class="code">Test MSE: 0.0049, Test MAE: 0.0511</pre>
+
+</p>
+</html>

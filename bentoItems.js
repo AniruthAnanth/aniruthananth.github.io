@@ -18,6 +18,10 @@ const bentoItemsDesktop = [
         1, 1, false, ''), 
 
     new GridItem(
+        ``, 
+        1, 1, true, 'background-image: url("./assets/pfp.jpg"); background-size: cover; background-position: center;'),
+
+    new GridItem(
         `<div class="center">
         <h1 style="width: 100%">
             📫 Contact me!
@@ -28,10 +32,6 @@ const bentoItemsDesktop = [
         </p>
         </div>`, 
         1, 1, false, ''),
-
-    new GridItem(
-        ``, 
-        1, 1, true, 'background-image: url("./assets/pfp.jpg"); background-size: cover; background-position: center;'),
     
     new GridItem(
         `<div class="center">
@@ -44,15 +44,24 @@ const bentoItemsDesktop = [
         1, 1, false, ''),  
 
     new GridItem(
+        ``, 
+        1, 1, true, 'background-image: url("./assets/pibble.jpg"); background-size: cover; background-position: center;'),
+
+    new GridItem(
         `<div class="center linkish"  onclick="window.open('https://github.com/AniruthAnanth/SpectroscopyAnalysis')">
         <h1 style="width: 100%">SPARCS ☄️</h1>
         <p>
         SPARCS, or Spectral Processing and Analysis for Recognition of Chemical Species, is my latest research project.
 
         Working under Dr. Guru Khalsa's mentorship, I hope to develop a machine learning model that can identify chemical species in a gas mixture using spectroscopy data.
+        Check out the Github repository for this project by clicking this card, or read the progress reports <a href="./pages/sparcs.html">here</a>.
         </p>
         </div>`, 
         2, 1, false, ''), 
+
+    new GridItem(
+        ``, 
+        1, 1, true, 'background-image: url("./assets/cool_results.jpg"); background-size: cover; background-position: center;'),
 
     new GridItem(
         `<div class="center">
@@ -63,17 +72,10 @@ const bentoItemsDesktop = [
         </div>`, 
         1, 1, false, ''),
 
-    
-    new GridItem(
-        `<div class="center">
-            <h1 style="width: 100%">Preliminary SPARCS Results</h1>
-            <br>
-            <p>Mean Absolute Deviation of ~±1.6% when predicting concentrations of compounds from synthetic Raman data.</p>
-            <p>Model trained on 4000 spectra, tested on 1000 spectra. Added noise to generated Raman data and performance was stable.</p>
-            <img src="./assets/loss.png" style="width: 100%; height: 100%; object-fit: contain;"></img>
-            <p>Next steps: Generate more realistic synthetic data with polynomial baselining and improve performance without data preprocessing!  </p>
-        </div>`, 
-        2, 1, false, 'background-color: white;'),
+    /*new GridItem(
+        `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5DWatYk51icT3gPDuxcUbF?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        `
+        , 2, 1, false, 'padding: 0px; margin: 0px; scrollbar-width: none;'),*/
 ];
 
 const bentoItems = bentoItemsDesktop;
