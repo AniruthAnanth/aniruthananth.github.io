@@ -54,7 +54,7 @@ const bentoItemsDesktop = [
         SPARCS, or Spectral Processing and Analysis for Recognition of Chemical Species, is my latest research project.
 
         Working under Dr. Guru Khalsa's mentorship, I hope to develop a machine learning model that can identify chemical species in a gas mixture using spectroscopy data.
-        Check out the <a href="https://github.com/AniruthAnanth/SpectroscopyAnalysis">Github repository for this project</a>, or read the progress reports <a href="./pages/sparcs.html">here</a>.
+        Check out the <a href="https://github.com/AniruthAnanth/SpectroscopyAnalysis">Github repository</a> for this project, or read the progress reports <a href="./pages/sparcs.html">here</a>.
         </p>
         </div>`, 
         2, 1, false, ''), 
