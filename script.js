@@ -3,15 +3,15 @@ $(document).ready(function() {
     function getItemsPerRow() {
         const width = $(window).width();
         if (width <= 600) {
-            return 1;
-        } else if (width <= 768) {
             return 2;
-        } else if (width <= 992) {
-            return 3;
-        } else if (width <= 1100) {
+        } else if (width <= 768) {
             return 4;
+        } else if (width <= 992) {
+            return 6;
+        } else if (width <= 1100) {
+            return 8;
         } else {
-            return 5;
+            return 10;
         }
     }
 

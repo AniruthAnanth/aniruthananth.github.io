@@ -1,4 +1,6 @@
-/* Define CSS variables for colors, border thickness, and border radius */
+/* ========================= */
+/* CSS Variables             */
+/* ========================= */
 :root {
     --background-color: 250, 250, 250;
     --border-color: 210, 210, 210;
@@ -7,7 +9,9 @@
     --border-radius: 10px;
 }
 
-/* Set base styles for the HTML element */
+/* ========================= */
+/* Base Styles               */
+/* ========================= */
 html {
     background-color: rgb(var(--background-color));
     font-family: monospace;
@@ -16,13 +20,14 @@ html {
     font-size: calc(0.95rem + 0.475vmin); /* slightly smaller base font size with responsiveness */
 }
 
-/* Remove default margin and padding from the body */
 body {
     margin: 0px;
     padding: 0px;
 }
 
-/* Set styles for all heading elements */
+/* ========================= */
+/* Typography                */
+/* ========================= */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     margin: 0px;
@@ -30,31 +35,32 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95em; /* slightly smaller */
 }
 
-/* Set styles for paragraph elements */
 p {
     color: var(--font-color);
     margin: 0px 0px;
     font-size: 0.95em; /* slightly smaller */
 }
 
-/* Set margin for the grid container */
+/* ========================= */
+/* Grid Layout               */
+/* ========================= */
 .grid-container {
     margin: 40px;
 }
 
-/* Set width for the grid */
 .grid {
     width: 100%;
 }
 
-/* Clear floats after the grid */
 .grid:after {
-  content: '';
-  display: block;
-  clear: both;
+    content: '';
+    display: block;
+    clear: both;
 }
 
-/* Set styles for grid items */
+/* ========================= */
+/* Grid Items                */
+/* ========================= */
 .grid-item {
     line-height: 1.1em;
     padding: 20px;
@@ -73,26 +79,32 @@ p {
 
 .grid-item:hover {
     background-color: white;
+    cursor: grab;
 }
 
-/* Set styles for grid items when hovered, dragged, or positioned post-drag */
 .grid-item:hover,
 .grid-item.is-dragging,
 .grid-item.is-positioning-post-drag {
-    box-shadow: rgba(var(--border-color), 1) 0px 0px 17px;
+    box-shadow: rgba(var(--border-color), 1) 0px 0px 6px;
     z-index: 2; /* keep dragged item on top */
+    cursor: grabbing;
 }
 
-/* Set styles for the drop placeholder */
+/* ========================= */
+/* Drop Placeholder          */
+/* ========================= */
 .packery-drop-placeholder {
-  outline: 2px dashed rgba(var(--border-color), 0.7);
-  outline-offset: -5px;
-  border-radius: var(--border-radius);
-  -webkit-transition: -webkit-transform 0.2s;
-          transition: transform 0.2s;
+    outline: 2px dashed rgba(var(--border-color), 0.7);
+    outline-offset: -5px;
+    border-radius: var(--border-radius);
+    -webkit-transition: -webkit-transform 0.2s;
+            transition: transform 0.2s;
+    z-index: -100;
 }
 
-/* Center content using flexbox */
+/* ========================= */
+/* Centering Utility         */
+/* ========================= */
 .center {
     display: flex;
     justify-content: center;
@@ -101,7 +113,9 @@ p {
     width: 100%;
 }
 
-/* Custom scrollbar styles */
+/* ========================= */
+/* Custom Scrollbar          */
+/* ========================= */
 .grid-item::-webkit-scrollbar {
     width: 14px;
 }
@@ -123,7 +137,6 @@ p {
     background-color: rgb(var(--font-color));
 }
 
-/* Make the scrollbar shorter */
 .grid-item::-webkit-scrollbar-track-piece:end {
     background: transparent;
     margin-bottom: 15px;
@@ -134,6 +147,13 @@ p {
     margin-top: 15px;
 }
 
+/* ========================= */
+/* Miscellaneous             */
+/* ========================= */
 .stamp {
     position: absolute;
+}
+
+.topper {
+    margin-bottom: 4px;
 }

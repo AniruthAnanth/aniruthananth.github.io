@@ -37,23 +37,22 @@ class GridItem {
 class Grid {
     constructor(containerId, itemsPerRow, gutter) {
         this.$container = $(`#${containerId}`);
-        this.itemsPerRow = itemsPerRow; // Number of items per row
-        this.gutter = gutter; // Fixed gutter width
+        this.itemsPerRow = itemsPerRow;
+        this.gutter = gutter;
         this.items = [];
         this.packeryInstance = null;
     }
 
     // Calculate the unit size based on the container width and number of items per row
-    calculateUnitSize(gutter) {
+    calculateUnitSize() {
         const containerWidth = this.$container.width();
-        return Math.floor(((containerWidth - (gutter * this.itemsPerRow + 1)) / this.itemsPerRow));
+        return Math.floor((containerWidth - (this.gutter * this.itemsPerRow + 1)) / this.itemsPerRow);
     }
 
     // Render the grid
     render() {
         this.unrender();
-        let gutter = this.gutter;
-        const unitSize = this.calculateUnitSize(gutter);
+        const unitSize = this.calculateUnitSize();
 
         this.$container.empty(); // Clear existing items
 
@@ -63,30 +62,29 @@ class Grid {
                 item.heightUnits = Math.floor((item.widthUnits * item.heightUnits) / this.itemsPerRow);
                 item.widthUnits = this.itemsPerRow;
             }
-
-            this.$container.append(item.createElement(unitSize, gutter));
+            this.$container.append(item.createElement(unitSize, this.gutter));
         });
 
         // Initialize Packery
         this.packeryInstance = this.$container.packery({
             itemSelector: '.grid-item',
-            gutter: gutter, // Fixed gutter width
+            gutter: this.gutter,
             columnWidth: unitSize
         });
 
         // Make all items draggable using Draggabilly
-        this.packeryInstance.find('.grid-item').each(function(_, gridItem) {
-            if (!gridItem.draggable) {
-                return;
-            }
+        this.packeryInstance.find('.grid-item').each((_, gridItem) => {
+            // if (!gridItem.draggable) {
+            //     return;
+            // }
             const draggie = new Draggabilly(gridItem);
             this.packeryInstance.packery('bindDraggabillyEvents', draggie);
 
             // Re-render the grid on drop
             draggie.on('dragEnd', () => {
-                $container.packery({});
+                this.$container.packery({});
             });
-        }.bind(this));
+        });
     }
 
     // Unrender the grid and unbind everything
