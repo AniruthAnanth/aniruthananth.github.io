@@ -74,7 +74,7 @@ h3 { font-size: var(--font-size-h3); text-transform: capitalize; }
 }
 
 .links a {
-    color: #3b3b3b;
+    color: #555555;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -92,7 +92,24 @@ h3 { font-size: var(--font-size-h3); text-transform: capitalize; }
 }
 
 .links a:hover, .linkto:hover {
-    color: #0a61d4;
+    color: #3d96b3;
+}
+
+/* Custom highlight colors for specific links */
+.link-phone:hover {
+    color: red !important; /* Red for phone */
+}
+.link-orcid:hover {
+    color: #A6CE39 !important; /* ORCID green */
+}
+.link-linkedin:hover {
+    color: #0077B5 !important; /* LinkedIn blue */
+}
+.link-googlescholar:hover {
+    color: #4285F4 !important; /* Google Scholar blue */
+}
+.link-tams:hover {
+    color: #00853E !important; /* UNT green */
 }
 
 .links a:not(:last-child)::after {
