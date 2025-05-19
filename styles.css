@@ -152,14 +152,20 @@ p {
 .pfp {
     width: var(--pfp-size);
     height: var(--pfp-size);
+    border: 1px solid white;
     border-radius: 50%;
     background: var(--pfp-bg-gradient);
-    box-shadow: var(--pfp-box-shadow);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: calc(var(--pfp-size) * 0.2);
     margin-bottom: calc(var(--pfp-size) * 0.1);
+    transition: all 0.2s;
+}
+
+.pfp:hover {
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 800px) {
@@ -179,16 +185,18 @@ p {
 }
 
 #contributions {
-    width: 95%;
+    width: calc(100% - 16px);
     height: auto;
     background: white;
     border-radius: var(--border-radius-container);
     padding: 8px;
+    padding-left: 6px;
+    padding-right: 10px;
     transition: all 0.2s;
     border: 1px solid white;
 }
 
-#contributions:hover {
+#contributions:hover{
     border: 1px solid var(--color-border);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
 }
